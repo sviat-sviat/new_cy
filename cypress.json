@@ -1,0 +1,7 @@
+{
+  "nodeVersion": "system",
+  "baseUrl":"https://admin-stage.juooce.com/", 
+  "defaultCommandTimeout": 10000,
+  "testFiles": "**/*.spec.js"
+}
+

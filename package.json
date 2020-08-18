@@ -1,0 +1,16 @@
+{
+  "name": "juicesystems-test-automation",
+  "version": "1.0.0",
+  "description": "Test automation for LSMHero web applications",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.6.1",
+    "cypress-file-upload": "^4.0.7"
+  }
+}
