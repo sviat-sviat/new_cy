@@ -1,11 +1,15 @@
 import * as testData from "../test data/data";
 import randomValue from "../basic methods/dataGenerator";
 import header from "../page objects/components/header"
+import leftMenu from "../page objects/components/left menu"
+
+const loader = '[class*="loader-active"] [class*=loader]';
 
 class basePage {
     header = new header()
+    leftMenu = new leftMenu ()
     data = testData
-    randomData = new randomValue()
+    randomData = new randomValue()    
 
     typeValue(selector, value) {
         cy.get(selector).clear().type(value)
@@ -28,7 +32,20 @@ class basePage {
     }
 
     fileUpload(input, file) {
+        cy.wait(1000)
         cy.get(input).attachFile(file)  
+    }
+
+    waitForLoaderGone() {
+        cy.get(loader, {timeout:10000})
+        cy.get(loader).should("not.be.visible")
+    }
+
+    clikcLastElemnt(element) {
+        cy.get(element).then(($elements) => {
+            const quant = $elements.length
+            cy.get(element).eq(quant - 1).click()
+        })
     }
 }
 

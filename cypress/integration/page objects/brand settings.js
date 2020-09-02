@@ -6,9 +6,6 @@ class brandSettings extends basePage {
         logoUploadInput: 'input[type=file]',
         image: '[class*=upload] img'
     }
-
-
 }
-
 
 export default brandSettings

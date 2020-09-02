@@ -1,4 +1,3 @@
-
 class header {
     selectors = {
         selectedBrand: '[class*="singleValue"]',
@@ -7,7 +6,9 @@ class header {
         logoutButton: '[class="nav-link"]',
         selectBrandDropdownInput: '[class*=header-shad] [autocapitalize="none"]',    
         selectBrandDropdown: '[class*=header-sha] [class="select-wrapper"]',
-        itemsInDropdown: '[class*=qy-menu] [class*=option]'     
+        itemsInDropdown: '[class*=qy-menu] [class*=option]', 
+        brandSetupMenubutton: '[class*=menu][class*="left"]',
+        franchiseesMenuButton: '[class*=visible] [href*="users"]'
    }
 
     logout() {

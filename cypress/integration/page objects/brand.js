@@ -8,18 +8,28 @@ class brand extends basePage {
         nextButton: '[type=submit]',
         modalTitle: '[class="modal-title"]'
     }
-
+    
     createBrand(brandName, brandCode) {
-        const newBrandCode = this.randomData.getRandomBrandCode()
+        let brandCode1 = this.randomData.getRandomBrandCode()
+        let brandCode2 = this.randomData.getRandomBrandCode()
         this.clickElement(this.header.selectors.createBrandHeader)
         this.elementHasText(this.selectors.modalTitle, this.data.modalsHeaders.addBrand)
         this.typeValue(this.selectors.brandNameInput, brandName)
         this.typeValue(this.selectors.brandCodeInput, brandCode)
         this.clickElement(this.selectors.nextButton)
-        cy.wait(3000)
+        cy.wait(2500)
         cy.get('body').then(($body) => {
             if($body.text().includes(`Brand with code ${brandCode} already exists`)) {
-                this.typeValue(this.selectors.brandCodeInput, newBrandCode)
+                this.typeValue(this.selectors.brandCodeInput, brandCode1)
+                this.clickElement(this.selectors.nextButton)
+                cy.wait(2000)
+            } else {
+                cy.contains('General Settings').should('be.visible');
+            }
+        })
+        cy.get('body').then(($param) => {
+            if($param.text().includes(`Brand with code ${brandCode2} already exists`)) {
+                this.typeValue(this.selectors.brandCodeInput, brandCode2)
                 this.clickElement(this.selectors.nextButton)
             } else {
                 cy.contains('General Settings').should('be.visible');

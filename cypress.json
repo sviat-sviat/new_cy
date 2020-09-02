@@ -1,7 +1,12 @@
 {
-  "nodeVersion": "system",
-  "baseUrl":"https://admin-stage.juooce.com/", 
-  "defaultCommandTimeout": 10000,
-  "testFiles": "**/*.spec.js"
-}
+    "nodeVersion": "system",
+    "baseUrl":"https://admin-stage.juooce.com/", 
+    "defaultCommandTimeout": 30000,
+    "testFiles": "**/*.spec.js",
 
+    "viewportWidth": 1364,
+    "viewportHeight": 1054,
+
+    "chromeWebSecurity": false
+    
+  }
